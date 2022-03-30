@@ -42,3 +42,7 @@ Usage: node png2xbm.js --input FOLDER --output FOLDER
         --input, -input, --i, -i : Input folder where have the .png images
         --output, -output, --o, -o : Output folder where the .xbm file will be saved
 ```
+
+### What is this for?
+This is for: https://github.com/ClubmakerCanFabra/globus_sonda.git
+for use it to create animations for [Heltec LoRa 32](https://heltec.org/project/wifi-lora-32/)
