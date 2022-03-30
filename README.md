@@ -13,8 +13,9 @@ node png2xbm.js --help
 ```
 
 ## Windows
-Install [ImageMagick](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-29-Q16-x64-static.exe)
-Install [NodeJS](https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi)
+- Install [ImageMagick](https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-7.1.0-29-Q16-x64-static.exe)
+
+- Install [NodeJS](https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi)
 ```bash
 git clone https://github.com/adriabama06/png2xbm.git
 
