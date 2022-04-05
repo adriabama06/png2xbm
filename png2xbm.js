@@ -39,6 +39,7 @@ if(argvs.has("help") || argvs.has("h")) {
         (Optional) --header, -header : Output of the header file for C/C++ animation
         (Optional if --header is not used) --x, -x : Images x resolution
         (Optional if --header is not used) --y, -y : Images y resolution
+        (Optional) --remove, -remove, --r, -r : Remove output folder (recomended if you use --header for automatic remove output folder)
 
         --input, -input, --i, -i : Input folder where have the .png images
         --output, -output, --o, -o : Output folder where the .xbm file will be saved
@@ -55,6 +56,12 @@ if(!argvs.has("input")) {
 if(!argvs.has("output")) {
     if(argvs.has("o")) {
         argvs.set("output", argvs.get("o"));
+    }
+}
+
+if(!argvs.has("remove")) {
+    if(argvs.has("r")) {
+        argvs.set("remove", argvs.get("r"));
     }
 }
 
@@ -158,7 +165,13 @@ async function doWork() {
         return;
     }
 
-    var outtext = `const static char animation[${input.length}][${resolution_x * resolution_y}] = {\n\n`;
+    var outtext = `#define animation_width ${resolution_x}
+#define animation_height ${resolution_y}
+
+#define frames ${input.length}
+
+// const static char animation[frames][animation_width * animation_height] // Using the automatic created variables
+const static char animation[${input.length}][${resolution_x * resolution_y}] = {\n\n`;
 
     for(var i = 0; i < input.length; i++) {
 
@@ -174,6 +187,11 @@ async function doWork() {
     }
     outtext += "};";
     fs.writeFileSync(output_header, outtext);
+
+    if(argvs.has("remove")) {
+        fs.rmdirSync(output_dir, { recursive: true });
+        console.log(`Removed : ${output_dir}`);
+    }
 }
 
 doWork()
