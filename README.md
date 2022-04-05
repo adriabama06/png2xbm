@@ -38,6 +38,7 @@ Usage: node png2xbm.js --input FOLDER --output FOLDER
         (Optional) --header, -header : Output of the header file for C/C++ animation
         (Optional if --header is not used) --x, -x : Images x resolution
         (Optional if --header is not used) --y, -y : Images y resolution
+        (Optional) --remove, -remove, --r, -r : Remove output folder (recomended if you use --header for automatic remove output folder)
 
         --input, -input, --i, -i : Input folder where have the .png images
         --output, -output, --o, -o : Output folder where the .xbm file will be saved
